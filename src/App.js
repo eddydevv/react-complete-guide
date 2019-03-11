@@ -62,7 +62,8 @@ class App extends Component {
             return <Person 
               click={() => this.deletePersonHandler(index)}
               name={person.name} 
-              age={person.age}              
+              age={person.age}   
+              key={person.id}           
               changed={(event) => this.nameChangeHandler(event, person.id)} />
           })}
         </div>
