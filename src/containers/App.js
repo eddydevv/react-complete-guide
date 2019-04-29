@@ -17,7 +17,8 @@ class App extends Component {
         { id: 'cdsfsd', name: 'Stephanie', age: 26}
       ],
       otherState: 'some other value',
-      showPersons: false
+      showPersons: false,
+      showCockpit: true
     }
 
     this.deletePersonHandler = this.deletePersonHandler.bind(this)
@@ -86,11 +87,12 @@ class App extends Component {
 
     return (
         <WithClass classes={classes.App}>
-          <Cockpit 
+          <button onClick={() => { this.setState({ showCockpit: !this.state.showCockpit })}}>Remove Cockpit</button>
+          { this.state.showCockpit ? <Cockpit 
             title={this.props.appTitle}
             showPersons={this.state.showPersons}
             persons={this.state.persons}
-            clicked={this.togglePersonHandler} />
+            clicked={this.togglePersonHandler} /> : ''}
           {persons}
         </WithClass>
     );
